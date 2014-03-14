@@ -2,6 +2,7 @@
 Library           Selenium2Library
 
 *** Variables ***
+${BS}             ${EMPTY}
 
 *** Keywords ***
 Setup
@@ -13,7 +14,7 @@ Teardown
 -- LOGIN PAGE --
 
 Show login page
-    Go To    ${BASE_URL}/loginUser.html
+    Go To    ${BASE_URL}/loginUser${BS}.html
     Page Should Contain    Logon to Fresh
 
 An user with name "${username}" and password "${password}" is entered
