@@ -1,0 +1,100 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Variables ***
+
+*** Keywords ***
+Setup
+    Open Browser    about:blank    firefox
+
+Teardown
+    Close All Browsers
+
+-- LOGIN PAGE --
+
+Show login page
+    Go To    ${BASE_URL}/loginUser.html
+    Page Should Contain    Logon to Fresh
+
+An user with name "${username}" and password "${password}" is entered
+    Enter username    ${username}
+    Enter password    ${password}
+
+Enter username
+    [Arguments]    ${username}
+    Page Should Contain    Logon to Fresh
+    Input Text    username    ${username}
+
+Enter password
+    [Arguments]    ${password}
+    Page Should Contain    Logon to Fresh
+    Input Text    password    ${password}
+
+Submit login credentials
+    Click Button    submit
+
+Login page is shown
+    Show login page
+
+User submits credentials
+    Submit login credentials
+
+user "${username}" with password "${password}" is logged in
+    Show login page
+    An user with name "${username}" and password "${password}" is entered
+    User submits credentials
+
+-- AVAILABILITY PAGE --
+
+Show availability page
+    Go To    ${BASE_URL}/availabilityQuery.html
+    Page Should Contain    Honest Flight Search
+
+The availability page is shown
+    Page Should Contain    Book / Plan a Flight
+
+departure city is "${city}"
+    Input Text    departure    ${city}
+
+destination city is "${city}"
+    Input Text    destination    ${city}
+
+depature date is ${nr} days after today
+    ${yy}    ${mm}    ${dd}=    Get Time    year,month,day    NOW + ${nr} days
+    ${monthnames}    Create Dictionary    01    January    02    February    03
+    ...    March    04    April    05    May    06
+    ...    June    07    July    08    August    09
+    ...    September    10    October    11    November    12
+    ...    December
+    ${month}=    Get From Dictionary    ${monthnames}    ${mm}
+    Select From List By Value    DEPD    ${dd}
+    Select From List By Label    DEPYM    ${month} ${yy}
+
+return date is ${nr} days after today
+    ${yy}    ${mm}    ${dd}=    Get Time    year,month,day    NOW + ${nr} days
+    ${monthnames}    Create Dictionary    01    January    02    February    03
+    ...    March    04    April    05    May    06
+    ...    June    07    July    08    August    09
+    ...    September    10    October    11    November    12
+    ...    December
+    ${month}=    Get From Dictionary    ${monthnames}    ${mm}
+    Select From List By Value    RETD    ${dd}
+    Select From List By Label    RETYM    ${month} ${yy}
+
+query is submitted
+    Click Button    submit
+
+query result is shown
+    Page Should Contain    Schedule
+
+return trip
+    Select Radio Button    RET    YES
+
+no return trip
+    Select Radio Button    RET    NO
+
+-- GENERAL --
+
+the alert "${message}" is shown
+    ${msg}=    Get Alert Message
+    Should Be Equal As Strings    ${msg}    ${message}

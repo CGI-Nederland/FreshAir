@@ -1,0 +1,5 @@
+*** Settings ***
+Suite Setup       Setup
+Suite Teardown    Teardown
+Test Setup
+Resource          Keywords/Keywords.txt
