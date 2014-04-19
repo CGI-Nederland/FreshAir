@@ -16,8 +16,8 @@
     };
 
     var config = {
-        appErrorPrefix: '[HT Error] ', //Configure the exceptionHandler decorator
-        docTitle: 'HotTowel: ',
+        appErrorPrefix: '[FE Error] ', //Configure the exceptionHandler decorator
+        docTitle: 'Fresh Air: ',
         events: events,
         remoteServiceName: remoteServiceName,
         version: '2.1.0'

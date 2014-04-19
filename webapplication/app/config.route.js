@@ -30,12 +30,22 @@
                     }
                 }
             }, {
+                url: '/search',
+                config: {
+                    title: 'search',
+                    templateUrl: 'app/search/search.html',
+                    settings: {
+                        nav: 2,
+                        content: '<i class="fa fa-search"></i> Search flight'
+                    }
+                }
+            }, {
                 url: '/admin',
                 config: {
                     title: 'admin',
                     templateUrl: 'app/admin/admin.html',
                     settings: {
-                        nav: 2,
+                        nav: 3,
                         content: '<i class="fa fa-lock"></i> Admin'
                     }
                 }
