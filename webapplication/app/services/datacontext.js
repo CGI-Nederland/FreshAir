@@ -9,7 +9,9 @@
 
         var service = {
             getPeople: getPeople,
-            getMessageCount: getMessageCount
+            getMessageCount: getMessageCount,
+            getAirports: getAirports,
+            getAgeRanges: getAgeRanges
         };
 
         return service;
@@ -27,6 +29,26 @@
                 { firstName: 'Haley', lastName: 'Guthrie', age: 35, location: 'Wyoming' }
             ];
             return $q.when(people);
+        }
+
+
+        function getAirports() {
+            var airports = [
+                { name: 'Amsterdam', code:'AMS' },
+                { name: 'Paris (Charles de Gaulles)', code:'CDG' },
+                { name: 'Paris (Orly)', code:'ORY' }
+            ];
+            return $q.when(airports);
+        }
+
+        function getAgeRanges() {
+            var ages = { 
+                adults: [1,2,3,4,5,6,7],
+                children: [0,1,2,3,4,5,6],
+                infants: [0,1,2,3,4]
+            };
+            
+            return $q.when(ages);
         }
     }
 })();

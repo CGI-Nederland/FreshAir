@@ -21,16 +21,14 @@
 										<div class="input-group">
 											<label for="departure">Choose your departure city / airport</label>
 											<select class="form-control" id="departure" ng-model="departure">
-												<option>Amsterdam (Schiphol)</option>
-												<option>Hamburg</option>
-												<option>Parijs</option>
-												<option>London</option>
-												<option>New York</option>
+												<option ng-repeat="a in vm.airports">{{a.name}}</option>
 											</select>
 										</div>
 										<div class="input-group">
 											 <label for="destination">Choose your destination city / airport</label>
-											 <input type="text" class="form-control" id="destination" ng-model="destination"/>
+											 <select class="form-control" id="destination" ng-model="destination">
+												<option ng-repeat="a in vm.airports">{{a.name}}</option>
+											</select>
 										</div>
 									</div>
 									
@@ -48,7 +46,22 @@
 										<div class="form-group">
 											 <label for="DEPD" class="col-md-4">Departing</label>
 											 <div class="col-md-8">
-											 	<input type="date" class="form-control" id="DEPD" ng-model="departureDate"/>
+											 	<!-- <input type="text" class="form-control" id="DEPD" ng-model="departureDate"/> -->
+											 	<p class="input-group">
+											 		<!--
+											 			min="minDate" max="'2015-06-22'"
+										            	datepicker-options="dateOptions" date-disabled="disabled(date, mode)" 
+										            	ng-required="true" 
+											 		-->
+									            	<input type="text" class="form-control" 
+										            	datepicker-popup="{{vm.dateFormat}}" id="DEPD" 
+										            	ng-model="departure.date" is-open="vm.departure.opened" close-text="Close" 
+										            	ng-required="true" 
+										            	/>
+									            	<span class="input-group-btn">
+									                	<button class="btn btn-default" ng-click="vm.departure.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+									            	</span>
+									            </p>
 											 </div>
 										</div>
 
@@ -70,9 +83,24 @@
 
 										<div class="form-group">
 											 <label for="RETD" class="col-md-4">Returning</label>
-											 <div class="col-md-8">
-											 	<input type="date" class="form-control" id="RETD" ng-model="returnDate"/>
-											</div>
+											<div class="col-md-8">
+											 	<!-- <input type="text" class="form-control" id="DEPD" ng-model="departureDate"/> -->
+											 	<p class="input-group">
+											 		<!--
+											 			min="minDate" max="'2015-06-22'"
+										            	datepicker-options="dateOptions" date-disabled="disabled(date, mode)" 
+										            	ng-required="true" 
+											 		-->
+									            	<input type="text" class="form-control" 
+										            	datepicker-popup="{{vm.dateFormat}}" id="RETD" 
+										            	ng-model="returning.date" is-open="vm.returning.opened" close-text="Close" 
+										            	ng-required="true" 
+										            	/>
+									            	<span class="input-group-btn">
+									                	<button class="btn btn-default" ng-click="vm.returning.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+									            	</span>
+									            </p>
+											 </div>
 										</div>
 									</div>
 									
@@ -96,13 +124,7 @@
 											 <label for="adt" class="col-md-8">adults (12 years or older)</label>
 											 <div class="col-md-4">
 												 <select class="form-control" id="ADT" ng-model="adt">
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
-													<option>4</option>
-													<option>5</option>
-													<option>6</option>
-													<option>7</option>
+													<option ng-repeat="age in vm.ageranges.adults">{{age}}</option>
 												</select>
 											</div>
 										</div>
@@ -111,13 +133,7 @@
 											 <label for="CHD" class="col-md-8">children (2-11 years)</label>
 											 <div class="col-md-4">
 												 <select class="form-control" id="CHD" ng-model="chd">
-													<option>0</option>
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
-													<option>4</option>
-													<option>5</option>
-													<option>6</option>
+												 	<option ng-repeat="age in vm.ageranges.children">{{age}}</option>
 												</select>
 											</div>
 										</div>
@@ -127,11 +143,7 @@
 											 <label for="INF" class="col-md-8">baby's (0-23 months)</label>
 											 <div class="col-md-4">
 												 <select class="form-control" id="INF" ng-model="inf">
-													<option>0</option>
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
-													<option>4</option>
+													<option ng-repeat="age in vm.ageranges.infants">{{age}}</option>
 												</select>
 											</div>
 										</div>
@@ -164,7 +176,7 @@
 								</div>
 							</div>
 						</div>
-										
+
 	                </div>
 
 	                <div class="widget-foot">
