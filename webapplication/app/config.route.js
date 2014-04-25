@@ -13,14 +13,14 @@
         routes.forEach(function (r) {
             $routeProvider.when(r.url, r.config);
         });
-        $routeProvider.otherwise({ redirectTo: '/' });
+        $routeProvider.otherwise({ redirectTo: '/login' });
     }
 
     // Define the routes 
     function getRoutes() {
         return [
             {
-                url: '/',
+                url: '/home',
                 config: {
                     templateUrl: 'app/dashboard/dashboard.html',
                     title: 'dashboard',
@@ -47,6 +47,25 @@
                     settings: {
                         nav: 3,
                         content: '<i class="fa fa-lock"></i> Admin'
+                    }
+                }
+            },
+            {
+                url: '/login',
+                config: {
+                    title: 'login',
+                    templateUrl: 'app/login/login.html'
+                   
+                }
+            },
+            {
+                url: '/logout',
+                config: {
+                    title: 'logout',
+                    templateUrl: 'app/logout/logout.html',
+                    settings: {
+                        nav: 9,
+                        content: '<i class="fa fa-key"></i> Logout'
                     }
                 }
             }

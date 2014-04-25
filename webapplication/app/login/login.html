@@ -1,0 +1,37 @@
+<section class="mainbar" data-ng-controller="login as vm">
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="widget wlightblue">
+                    <div data-cc-widget-header title="{{vm.title}}"></div>
+                    <div class="widget-content user">
+
+                        <form name="logonform" class="form-horizontal" role="form" ng-submit="vm.validate()" id="logonform">
+							<div class="form-group">
+						    	<label for="username" class="control-label">Fresh & Honest Club number:</label>
+						      	<input type="text" class="form-control" id="username" placeholder="Enter a valid club number" ng-model="vm.credentials.username">
+						    </div>
+							<div class="form-group">
+						    	<label for="password" class="control-label">Password:</label>
+						      	<input type="password" class="form-control" id="password" placeholder="Enter a valid password" ng-model="vm.credentials.password">
+							</div>
+						  
+						  	<div class="form-group">
+						    	<div class="col-sm-offset-2">
+						      		<button type="submit" class="btn btn-primary" name="submit">Continue</button>
+						      		<a class="btn button-link" ng-click="vm.reset()" role="button">Reset</a>
+						    	</div>
+						  	</div>
+
+						</form>
+
+
+                    </div>
+                    <div class="widget-foot">
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

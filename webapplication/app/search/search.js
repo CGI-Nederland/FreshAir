@@ -3,9 +3,9 @@
 (function () {
     'use strict';
     var controllerId = 'search';
-    angular.module('app').controller(controllerId, ['common', 'datacontext', search]);
+    angular.module('app').controller(controllerId, ['$location', 'common', 'datacontext', search]);
 
-    function search(common, datacontext) {
+    function search($location, common, datacontext) {
         var getLogFn = common.logger.getLogFn;
         var log = getLogFn(controllerId);
 
@@ -64,7 +64,11 @@
             this.date = null;
         };        
 
-        
+        vm.searchFlights = function() {
+            log("search flights");
+            $location.path('/searchresults');
+        };
+
         activate();
 
         function activate() {

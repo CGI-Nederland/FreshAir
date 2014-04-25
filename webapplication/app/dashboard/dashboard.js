@@ -15,11 +15,12 @@
         vm.messageCount = 0;
         vm.people = [];
         vm.title = 'Dashboard';
+        vm.airports = [];
 
         activate();
 
         function activate() {
-            var promises = [getMessageCount(), getPeople()];
+            var promises = [getMessageCount(), getPeople(), getAirports()];
             common.activateController(promises, controllerId)
                 .then(function () { log('Activated Dashboard View'); });
         }
@@ -33,6 +34,12 @@
         function getPeople() {
             return datacontext.getPeople().then(function (data) {
                 return vm.people = data;
+            });
+        }
+
+        function getAirports() {
+            return datacontext.getAirports().then(function (data) {
+                return vm.airports = data;
             });
         }
     }

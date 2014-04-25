@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="widget wviolet">
-                        <div data-cc-widget-header title="People"
+                        <div data-cc-widget-header title="Gold Members"
                              allow-collapse="true"></div>
                         <div class="widget-content text-center text-info">
                             <table class="table table-condensed table-striped">
@@ -55,10 +55,25 @@
                 </div>
                 <div class="col-md-6">
                     <div class="widget wgreen">
-                        <div data-cc-widget-header title="{{vm.news.title}}"
+                        <div data-cc-widget-header title="Available airports"
                              allow-collapse="true"></div>
                         <div class="widget-content text-center text-info">
-                            <small>{{vm.news.description}}</small>
+                            
+                                <table class="table table-condensed table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Airport</th>
+                                        <th>Code</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="p in vm.airports">
+                                        <td>{{p.name}}</td>
+                                        <td>{{p.code}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
                         </div>
                         <div class="widget-foot">
                             <div class="clearfix"></div>

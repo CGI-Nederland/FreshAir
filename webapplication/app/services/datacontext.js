@@ -11,7 +11,8 @@
             getPeople: getPeople,
             getMessageCount: getMessageCount,
             getAirports: getAirports,
-            getAgeRanges: getAgeRanges
+            getAgeRanges: getAgeRanges,
+            login: login
         };
 
         return service;
@@ -49,6 +50,11 @@
             };
             
             return $q.when(ages);
+        }
+
+        function login(credentials) {
+            return $q.when(credentials.username==='123.456.789.0' && credentials.password==='abcd');
+
         }
     }
 })();
