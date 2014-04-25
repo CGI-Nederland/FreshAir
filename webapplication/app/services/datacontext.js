@@ -12,7 +12,8 @@
             getMessageCount: getMessageCount,
             getAirports: getAirports,
             getAgeRanges: getAgeRanges,
-            login: login
+            login: login, 
+            logout: logout
         };
 
         return service;
@@ -53,7 +54,12 @@
         }
 
         function login(credentials) {
-            return $q.when(credentials.username==='123.456.789.0' && credentials.password==='abcd');
+            debugger;
+            return $q.then(credentials.username==='123.456.789.0' && credentials.password==='abcd');
+
+        }
+        function logout() {
+            return $q.when(true);
 
         }
     }
