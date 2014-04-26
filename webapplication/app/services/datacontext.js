@@ -54,8 +54,8 @@
         }
 
         function login(credentials) {
-            debugger;
-            return $q.then(credentials.username==='123.456.789.0' && credentials.password==='abcd');
+            var b = (credentials.username==='123.456.789.0' && credentials.password==='abcd');
+            return $q.when(b);
 
         }
         function logout() {
