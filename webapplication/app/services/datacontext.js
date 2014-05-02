@@ -6,6 +6,7 @@
 
     function datacontext(common) {
         var $q = common.$q;
+        
 
         var service = {
             getPeople: getPeople,
@@ -54,8 +55,17 @@
         }
 
         function login(credentials) {
-            var b = (credentials.username==='123.456.789.0' && credentials.password==='abcd');
-            return $q.when(b);
+            var deferred = $q.defer();
+            
+            if (credentials.username==='123.456.789.0' && credentials.password==='abcd')
+            {
+                console.log('user ok');
+                deferred.resolve(true);
+            } else {
+                console.log('user nok');
+                deferred.reject('Invalid user-id or password.');
+            }
+            return deferred.promise;
 
         }
         function logout() {

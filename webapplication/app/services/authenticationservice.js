@@ -7,7 +7,9 @@
     function authservice($http, $location, SessionService, datacontext, common) {
  
         var cacheSession = function(value) {
+            console.log('cache session');
             SessionService.set('authenticated', value);
+            return value;
         };
         var uncacheSession = function() {
             SessionService.unset('authenticated');
@@ -16,13 +18,15 @@
             login: function(credentials) {
                 var login = datacontext.login(credentials);
                 //debugger;
-                login.then(cacheSession);
-                return login;
+                return login.then(cacheSession, function(err) { 
+                    console.error('bypass'); 
+                    //return common.$q.reject(err); 
+                    throw new Error(err);
+                });
             },
             logout: function() {
                 var logout = datacontext.logout();
-                logout.then(uncacheSession);
-                return logout;
+                return logout.then(uncacheSession);
             },
             isLoggedIn: function() {
                 var v = SessionService.get('authenticated');

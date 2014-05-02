@@ -16,7 +16,6 @@
         function activate() {
             common.activateController([], controllerId)
                 .then(function () { 
-                    log('Activated Login View'); 
                     AuthenticationService.logout();
                     $location.path('/login'); 
                 });

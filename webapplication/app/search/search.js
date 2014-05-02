@@ -10,7 +10,7 @@
         var log = getLogFn(controllerId);
 
         var vm = this;
-        vm.title = 'Search';
+        vm.title = 'Honest Flight Search';
         vm.airports = [];
         vm.ageranges = {};
 
