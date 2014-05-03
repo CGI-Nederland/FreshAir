@@ -20,13 +20,13 @@
 									<div class="panel-body">
 										<div class="input-group">
 											<label for="departure">Choose your departure city / airport</label>
-											<select class="form-control" id="departure" ng-model="departure">
+											<select class="form-control" id="departure" ng-model="vm.departureCity">
 												<option ng-repeat="a in vm.airports" value="{{a.code}}">{{a.name}}</option>
 											</select>
 										</div>
 										<div class="input-group">
 											 <label for="destination">Choose your destination city / airport</label>
-											 <select class="form-control" id="destination" ng-model="destination">
+											 <select class="form-control" id="destination" ng-model="vm.destinationCity">
 												<option ng-repeat="a in vm.airports" value="{{a.code}}">{{a.name}}</option>
 											</select>
 										</div>
@@ -48,11 +48,12 @@
 											 <div class="col-md-8">
 											 	<p class="input-group">
 									            	<input type="text" class="form-control" 
-										            	datepicker-popup="{{vm.dateFormat}}" id="DEPD" 
-										            	ng-model="vm.departure.date" is-open="vm.departure.opened" close-text="Close" 
+										            	datepicker-popup="{{dateFormat}}" id="DEPD" 
+										            	datepicker-options="dateOptions"
+										            	ng-model="departure.date" is-open="departure.opened" close-text="Close" 
 										            	/>
 									            	<span class="input-group-btn">
-									                	<button class="btn btn-default" ng-click="vm.departure.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+									                	<button class="btn btn-default" ng-click="departure.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
 									            	</span>
 									            </p>
 											 </div>
@@ -62,12 +63,12 @@
 											<label class="col-md-4">Returning flight?</label>
 											<div class="radio-inline">
 												<label class="radio-inline">
-												 	<input type="radio" name="RET" id="RET_YES" value="YES"> Yes
+												 	<input type="radio" ng-model="vm.ret" name="RET" id="RET_YES" value="YES"> Yes
 												</label>
 											</div>
 											<div class="radio-inline">
 												<label class="radio-inline">
-												 	<input type="radio" name="RET" id="RET_NO" value="NO"> No
+												 	<input type="radio" ng-model="vm.ret" name="RET" id="RET_NO" value="NO"> No
 												</label>
 											</div>
 										</div>
@@ -77,11 +78,11 @@
 											<div class="col-md-8">
 											 	<p class="input-group">
 									            	<input type="text" class="form-control" 
-										            	datepicker-popup="{{vm.dateFormat}}" id="RETD" 
-										            	ng-model="vm.returning.date" is-open="vm.returning.opened" close-text="Close" 
+										            	datepicker-popup="{{dateFormat}}" id="RETD" 
+										            	ng-model="returning.date" is-open="returning.opened" close-text="Close" 
 										            	/>
 									            	<span class="input-group-btn">
-									                	<button class="btn btn-default" ng-click="vm.returning.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+									                	<button class="btn btn-default" ng-click="returning.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
 									            	</span>
 									            </p>
 											 </div>
@@ -107,7 +108,7 @@
 										<div class="form-group">
 											 <label for="adt" class="col-md-8">adults (12 years or older)</label>
 											 <div class="col-md-4">
-												 <select class="form-control" id="ADT" ng-model="adt">
+												 <select class="form-control" id="ADT" ng-model="vm.adt">
 													<option ng-repeat="age in vm.ageranges.adults">{{age}}</option>
 												</select>
 											</div>
@@ -116,7 +117,7 @@
 										<div class="form-group">
 											 <label for="CHD" class="col-md-8">children (2-11 years)</label>
 											 <div class="col-md-4">
-												 <select class="form-control" id="CHD" ng-model="chd">
+												 <select class="form-control" id="CHD" ng-model="vm.chd">
 												 	<option ng-repeat="age in vm.ageranges.children">{{age}}</option>
 												</select>
 											</div>
@@ -126,7 +127,7 @@
 										<div class="form-group">
 											 <label for="INF" class="col-md-8">baby's (0-23 months)</label>
 											 <div class="col-md-4">
-												 <select class="form-control" id="INF" ng-model="inf">
+												 <select class="form-control" id="INF" ng-model="vm.inf">
 													<option ng-repeat="age in vm.ageranges.infants">{{age}}</option>
 												</select>
 											</div>
@@ -149,7 +150,7 @@
 										<div class="form-group">
 											 <label for="FARETYPE" class="col-md-4">Select class</label>
 											 <div class="col-md-8">
-												 <select class="form-control" id="FARETYPE" ng-model="fartype">
+												 <select class="form-control" id="FARETYPE" ng-model="vm.faretype">
 													<option value="FIRST">Business</option>
 													<option value="BESTPRICE" selected>Economy</option>
 												</select>

@@ -40,6 +40,12 @@
                     }
                 }
             }, {
+                url: '/flightresults',
+                config: {
+                    title: 'flightresults',
+                    templateUrl: 'app/flightresults/flightresults.html'
+                }
+            }, {
                 url: '/admin',
                 config: {
                     title: 'admin',

@@ -53,17 +53,17 @@
             var write = (toastType === 'error') ? $log.error : $log.log;
             source = source ? '[' + source + '] ' : '';
             write(source, message, data);
-            if (showToast) {
-                if (toastType === 'error') {
-                    toastr.error(message);
-                } else if (toastType === 'warning') {
-                    toastr.warning(message);
-                } else if (toastType === 'success') {
-                    toastr.success(message);
-                } else {
-                    toastr.info(message);
-                }
-            }
+            // if (showToast) {
+            //     if (toastType === 'error') {
+            //         toastr.error(message);
+            //     } else if (toastType === 'warning') {
+            //         toastr.warning(message);
+            //     } else if (toastType === 'success') {
+            //         toastr.success(message);
+            //     } else {
+            //         toastr.info(message);
+            //     }
+            // }
         }
     }
 })();

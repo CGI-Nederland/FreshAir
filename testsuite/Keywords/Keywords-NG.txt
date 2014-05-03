@@ -8,6 +8,8 @@ ${BASE_URL}       http://localhost:8000/#
 *** Keywords ***
 Setup
     Open Browser    about:blank    firefox
+    Go To    about:blank
+    Sleep    1s
     Maximize Browser Window
 
 Teardown
@@ -21,6 +23,7 @@ Test Teardown
 Show login page
     Go To    ${BASE_URL}/login
     Page Should Contain    Logon to Fresh
+    Sleep    1s
 
 An user with name "${username}" and password "${password}" is entered
     Enter username    ${username}
@@ -55,10 +58,12 @@ user "${username}" with password "${password}" is logged in
 Show availability page
     Go To    ${BASE_URL}/availabilityQuery.html
     Page Should Contain    Honest Flight Search
+    Sleep    1s
 
 a new search is started
     Go To    ${BASE_URL}/search
     Page Should Contain    Honest Flight Search
+    Sleep    1s
 
 The availability page is shown
     Page Should Contain    Book / Plan a Flight
@@ -71,24 +76,17 @@ destination city is "${city}"
 
 depature date is ${nr} days after today
     ${yy}    ${mm}    ${dd}=    Get Time    year,month,day    NOW + ${nr} days
-    Input Text    DEPD    ${dd}-${mm}-${yy}
+    Input Text    DEPD    ${yy}/${mm}/${dd}
 
 return date is ${nr} days after today
     ${yy}    ${mm}    ${dd}=    Get Time    year,month,day    NOW + ${nr} days
-    ${monthnames}    Create Dictionary    01    January    02    February    03
-    ...    March    04    April    05    May    06
-    ...    June    07    July    08    August    09
-    ...    September    10    October    11    November    12
-    ...    December
-    ${month}=    Get From Dictionary    ${monthnames}    ${mm}
-    Select From List By Value    RETD    ${dd}
-    Select From List By Label    RETYM    ${month} ${yy}
+    Input Text    RETD    ${yy}/${mm}/${dd}
 
 query is submitted
     Click Button    submit
 
 query result is shown
-    Page Should Contain    Schedule
+    Page Should Contain    Flight Schedule
 
 return trip
     Select Radio Button    RET    YES

@@ -199,4 +199,5 @@
             attrs.$set('class', 'widget-head');
         }
     });
+    
 })();
