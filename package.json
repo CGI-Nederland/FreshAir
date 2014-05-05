@@ -1,0 +1,28 @@
+{
+  "name": "FreshAir",
+  "version": "0.0.0",
+  "description": "The CGI demo application",
+  "main": "server.js",
+  "dependencies": {
+    "http-server": "~0.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mauricekoster/FreshAir.git"
+  },
+  "keywords": [
+    "freshair",
+    "node",
+    "angularjs"
+  ],
+  "author": "Maurice Koster",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mauricekoster/FreshAir/issues"
+  },
+  "homepage": "https://github.com/mauricekoster/FreshAir"
+}
