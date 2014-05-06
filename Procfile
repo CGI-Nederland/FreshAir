@@ -1,1 +1,1 @@
-web: http-server 
+web: node http-server -p 8000
