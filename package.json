@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-     "postinstall": "cd webapplication; ../node_modules/bower/bin/bower install"
+     "postinstall": "cd webapplication && ../node_modules/bower/bin/bower install"
   },
   "repository": {
     "type": "git",
