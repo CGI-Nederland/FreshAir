@@ -1,1 +1,1 @@
-web: node http-server -p 8000
+web: node server.js
