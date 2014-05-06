@@ -10,5 +10,6 @@ before_script:
   - sleep 3 # give xvfb some time to start
   - "cd webapplication; python server.py &"
   - sleep 3 # give Web server some time to bind to sockets, etc
+  - "cd"
 script:  pybot testsuite
 #comment
