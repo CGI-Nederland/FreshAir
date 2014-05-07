@@ -25,7 +25,6 @@ function validate() {
 		document.logonform.username.focus();
 		return false;
 	}
-	debugger;
 	//check a field to make sure password is filled in
 	if(document.logonform.password.value == 'abcd' && document.logonform.username.value == '123.456.789.0')
 	{
