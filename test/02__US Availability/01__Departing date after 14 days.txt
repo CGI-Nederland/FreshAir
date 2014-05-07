@@ -1,5 +1,5 @@
 *** Settings ***
-Resource          ../Keywords/Keywords-NG.txt
+Resource          ../Keywords/Keywords.txt
 Library           Collections
 
 *** Test Cases ***
@@ -10,8 +10,8 @@ Case 1: Departure date is 14 days in future
     And departure city is "AMS"
     And destination city is "CDG"
     And no return trip
-    When depature date is 15 days after today
-    And query is submitted
+    And depature date is 15 days after today
+    When query is submitted
     Then query result is shown
 
 Case 2: departure date less than 14 days in future
@@ -21,8 +21,8 @@ Case 2: departure date less than 14 days in future
     And departure city is "AMS"
     And destination city is "CDG"
     And no return trip
-    When depature date is 7 days after today
-    And query is submitted
+    And depature date is 7 days after today
+    When query is submitted
     Then the alert "The bookingdate must be 14 days in the future" is shown
 
 *** Keywords ***

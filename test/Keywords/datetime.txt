@@ -1,4 +1,0 @@
-*** Keywords ***
-Get current date
-    ${yy}    ${mm}    ${dd}=    Get Time    year,month,day    NOW + ${nr} days
-    [Return]    ${dd}-${mm}-{$yy}

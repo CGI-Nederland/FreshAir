@@ -1,5 +1,5 @@
 *** Settings ***
-Resource          ../Keywords/Keywords-NG.txt
+Resource          ../Keywords/Keywords.txt
 Library           Collections
 
 *** Test Cases ***
@@ -9,9 +9,9 @@ Case 1: Return date should be later to departure date
     And departure city is "AMS"
     And destination city is "CDG"
     And return trip
-    When depature date is 15 days after today
+    And depature date is 15 days after today
     And return date is 17 days after today
-    And query is submitted
+    When query is submitted
     Then query result is shown
 
 Case 2: Return date can be equal to departure date
@@ -20,9 +20,9 @@ Case 2: Return date can be equal to departure date
     And departure city is "AMS"
     And destination city is "CDG"
     And return trip
-    When depature date is 15 days after today
+    And depature date is 15 days after today
     And return date is 15 days after today
-    And query is submitted
+    When query is submitted
     Then query result is shown
 
 Case 3: Return date before departure date should result in alert
@@ -32,9 +32,9 @@ Case 3: Return date before departure date should result in alert
     And departure city is "AMS"
     And destination city is "CDG"
     And return trip
-    When depature date is 17 days after today
+    And depature date is 17 days after today
     And return date is 15 days after today
-    And query is submitted
+    When query is submitted
     Then the alert "Date of returnflight is incorrect!" is shown
 
 *** Keywords ***

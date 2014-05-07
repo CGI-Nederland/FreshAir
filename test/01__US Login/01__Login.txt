@@ -1,6 +1,6 @@
 *** Settings ***
 Test Teardown     Test Teardown
-Resource          ../Keywords/Keywords-NG.txt
+Resource          ../Keywords/Keywords.txt
 
 *** Test Cases ***
 User with correct credentials should be able to log on
