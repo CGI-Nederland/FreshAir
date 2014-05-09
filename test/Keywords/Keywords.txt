@@ -61,8 +61,8 @@ Show availability page
 
 a new search is started
     Go To    ${BASE_URL}/search
+    Sleep    2s
     Page Should Contain    Honest Flight Search
-    Sleep    1s
 
 The availability page is shown
     Page Should Contain    Book / Plan a Flight
