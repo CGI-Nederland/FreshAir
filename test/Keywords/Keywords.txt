@@ -2,7 +2,6 @@
 Library           Selenium2Library
 
 *** Variables ***
-${BS}             ${EMPTY}
 ${BASE_URL}       http://localhost:8000/#
 
 *** Keywords ***
