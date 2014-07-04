@@ -104,3 +104,5 @@ the alert "${message}" is shown
 The dashboard page is shown
     Page Should Contain    Gold Members
     Page Should Contain    Available airports
+
+Bla
