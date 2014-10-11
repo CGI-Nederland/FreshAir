@@ -1,0 +1,6 @@
+[
+    { "name": "Amsterdam", "code":"AMS" },
+    { "name": "Paris (Charles de Gaulles)", "code":"CDG" },
+    { "name": "Paris (Orly)", "code":"ORY" },
+    { "name": "Twente", "code":"EHTW" }
+]

@@ -45,17 +45,18 @@
                     title: 'flightresults',
                     templateUrl: 'app/flightresults/flightresults.html'
                 }
-            }, {
-                url: '/admin',
-                config: {
-                    title: 'admin',
-                    templateUrl: 'app/admin/admin.html',
-                    settings: {
-                        nav: 3,
-                        content: '<i class="fa fa-lock"></i> Admin'
-                    }
-                }
             },
+            //  {
+            //     url: '/admin',
+            //     config: {
+            //         title: 'admin',
+            //         templateUrl: 'app/admin/admin.html',
+            //         settings: {
+            //             nav: 3,
+            //             content: '<i class="fa fa-lock"></i> Admin'
+            //         }
+            //     }
+            // },
             {
                 url: '/login',
                 config: {

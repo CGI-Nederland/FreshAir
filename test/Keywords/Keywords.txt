@@ -57,7 +57,7 @@ user "${username}" with password "${password}" is logged in
 Show availability page
     Go To    ${BASE_URL}/availabilityQuery.html
     Page Should Contain    Honest Flight Search
-    Sleep    1s
+    Sleep    2s
 
 a new search is started
     Go To    ${BASE_URL}/search

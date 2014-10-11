@@ -37,12 +37,13 @@
 
 
         function getAirports() {
-            var airports = [
-                { name: 'Amsterdam', code:'AMS' },
-                { name: 'Paris (Charles de Gaulles)', code:'CDG' },
-                { name: 'Paris (Orly)', code:'ORY' }
-            ];
-            return $q.when(airports);
+            // var airports = [
+            //     { name: 'Amsterdam', code:'AMS' },
+            //     { name: 'Paris (Charles de Gaulles)', code:'CDG' },
+            //     { name: 'Paris (Orly)', code:'ORY' }
+            // ];
+            // return $q.when(airports);
+            return $http.get('/api/airports.json').then(function(response){ return response.data; });
         }
 
         function getAgeRanges() {
