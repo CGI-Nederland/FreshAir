@@ -1,4 +1,4 @@
 *** Settings ***
 Suite Setup       Setup
 Suite Teardown    Teardown
-Resource          Keywords/Keywords.txt
+Resource          Keywords/Keywords.robot

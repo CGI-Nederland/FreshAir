@@ -1,6 +1,6 @@
 *** Settings ***
 Test Teardown
-Resource          ../Keywords/Keywords.txt
+Resource          ../Keywords/Keywords.robot
 
 *** Test Cases ***
 User with correct credentials should be able to log on

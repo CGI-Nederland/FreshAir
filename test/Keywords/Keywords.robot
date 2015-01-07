@@ -6,7 +6,7 @@ ${BASE_URL}       http://localhost:8000/#
 
 *** Keywords ***
 Setup
-    Open Browser    about:blank    firefox
+    Open Browser    about:blank    chrome
     ##Go To    about:blank
     Sleep    1s
     Maximize Browser Window
@@ -21,8 +21,8 @@ Test Teardown
 
 Show login page
     Go To    ${BASE_URL}/login
+    Sleep    2s
     Page Should Contain    Logon to Fresh
-    Sleep    1s
 
 An user with name "${username}" and password "${password}" is entered
     Enter username    ${username}

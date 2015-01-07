@@ -1,5 +1,5 @@
 *** Settings ***
-Resource          ../Keywords/Keywords.txt
+Resource          ../Keywords/Keywords.robot
 Library           Collections
 
 *** Test Cases ***
