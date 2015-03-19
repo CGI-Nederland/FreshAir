@@ -2,7 +2,7 @@
 Library           Selenium2Library
 
 *** Variables ***
-${BASE_URL}       http://localhost:8000/#
+${BASE_URL}       https://ng-freshair.herokuapp.com/#
 
 *** Keywords ***
 Setup
@@ -40,6 +40,7 @@ Enter password
 
 Submit login credentials
     Click Button    submit
+    Sleep    1s
 
 Login page is shown
     Show login page
