@@ -43,7 +43,9 @@
       	<groupId>io.ddavison</groupId>
      	 	<artifactId>conductor</artifactId>
       	<version>2.0.3</version>
-  	</dependency>
+      	<scope>test</scope>
+      </dependency>
+	      
     </dependencies>
     <build>
     	<plugins>
