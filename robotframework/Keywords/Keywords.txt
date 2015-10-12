@@ -2,13 +2,14 @@
 Library           Selenium2Library
 
 *** Variables ***
-${BASE_URL}       http://localhost:8000/#
+${BASE_URL}       http://ng-freshair.herokuapp.com/#
+${BROWSER}        firefox
 
 *** Keywords ***
 Setup
-    Open Browser    about:blank    firefox
+    Open Browser    about:blank    ${BROWSER}
     ##Go To    about:blank
-    Sleep    1s
+    Sleep    2s
     Maximize Browser Window
 
 Teardown
@@ -21,10 +22,10 @@ Test Teardown
 
 Show login page
     Go To    ${BASE_URL}/login
+    Sleep    2s
     Page Should Contain    Logon to Fresh
-    Sleep    1s
 
-An user with name "${username}" and password "${password}" is entered
+A user with name "${username}" and password "${password}" is entered
     Enter username    ${username}
     Enter password    ${password}
 
@@ -40,6 +41,7 @@ Enter password
 
 Submit login credentials
     Click Button    submit
+    Sleep    2s
 
 Login page is shown
     Show login page
@@ -49,7 +51,7 @@ User submits credentials
 
 user "${username}" with password "${password}" is logged in
     Show login page
-    An user with name "${username}" and password "${password}" is entered
+    A user with name "${username}" and password "${password}" is entered
     User submits credentials
 
 -- AVAILABILITY PAGE --
