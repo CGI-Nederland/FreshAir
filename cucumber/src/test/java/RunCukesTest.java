@@ -12,20 +12,24 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin={"json:target/cucumber-reports/test-report.json","pretty"}, monochrome=true, snippets=SnippetType.CAMELCASE)
+@CucumberOptions(
+	plugin={"json:target/cucumber-html-reports/test-report.json"},
+	monochrome=true,
+	snippets=SnippetType.CAMELCASE
+	)
 public class RunCukesTest {
 	@AfterClass
     public static void tearDown() throws VelocityException, IOException {
-    	
-    	
-    	
+
+
+
     	System.out.println("tearing down");
-    	
+
     	File reportOutputDirectory = new File("target/cucumber-reports");
     	List<String> list = new ArrayList<String>();
     	list.add("target/cucumber-reports/test-report.json");
 
- 
+
     	String pluginUrlPath = "";
     	String buildNumber = "1";
     	String buildProject = "cucumber-jvm";
@@ -41,12 +45,12 @@ public class RunCukesTest {
     	boolean parallelTesting = false;
 
     	ReportBuilder reportBuilder = new ReportBuilder(
-			list, reportOutputDirectory, 
+			list, reportOutputDirectory,
 			pluginUrlPath, buildNumber,
-    	    buildProject, skippedFails, pendingFails, undefinedFails, 
+    	    buildProject, skippedFails, pendingFails, undefinedFails,
     	    missingFails, flashCharts, runWithJenkins, artifactsEnabled,
     	    artifactConfig, highCharts, parallelTesting);
     	reportBuilder.generateReports();
-    	
+
     }
 }
