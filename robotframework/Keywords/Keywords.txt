@@ -2,7 +2,8 @@
 Library           Selenium2Library
 
 *** Variables ***
-${BASE_URL}       http://ng-freshair.herokuapp.com/#
+#${BASE_URL}      http://ng-freshair.herokuapp.com/#
+${BASE_URL}       http://localhost:80/#
 ${BROWSER}        firefox
 
 *** Keywords ***

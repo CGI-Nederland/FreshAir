@@ -1,31 +1,47 @@
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.velocity.exception.VelocityException;
-import org.junit.AfterClass;
-import org.junit.runner.RunWith;
-import cucumber.api.junit.Cucumber;
-import net.masterthought.cucumber.ReportBuilder;
-import cucumber.api.CucumberOptions;
-import cucumber.api.SnippetType;
-
-@RunWith(Cucumber.class)
-@CucumberOptions(plugin={"json:target/cucumber-reports/test-report.json","pretty"}, monochrome=true, snippets=SnippetType.CAMELCASE)
-public class RunCukesTest {
-	@AfterClass
-    public static void tearDown() throws VelocityException, IOException {
-    	
-    	
-    	
-    	System.out.println("tearing down");
-    	
-    	File reportOutputDirectory = new File("target/cucumber-reports");
-    	List<String> list = new ArrayList<String>();
-    	list.add("target/cucumber-reports/test-report.json");
-
  
+import net.masterthought.cucumber.ReportBuilder;
+
+public class MakeReport {
+
+	public static void main(String[] args) throws VelocityException, IOException {
+		
+		FilenameFilter jsonFilter = new FilenameFilter() {
+		    public boolean accept(File file, String name) {
+		        if (name.endsWith(".json")) {
+		            // filters files whose extension is .json
+		            return true;
+		        } else {
+		            return false;
+		        }
+		    }
+		};
+		
+		File reportOutputDirectory = new File("target/cucumber-reports");
+		File[] files = reportOutputDirectory.listFiles(jsonFilter);
+		List<String> list = new ArrayList<String>();
+		
+		if (files.length == 0) {
+		    System.out.println("There is no json files");
+		} else {
+		    for (File aFile : files) {
+		        String fn = aFile.getName();
+		        System.out.println(fn);
+		        list.add("target/cucumber-reports/" + fn);
+		    }
+		}
+		
+    	
+    	
+  
+
+
     	String pluginUrlPath = "";
     	String buildNumber = "1";
     	String buildProject = "cucumber-jvm";
@@ -48,5 +64,8 @@ public class RunCukesTest {
     	    artifactConfig, highCharts, parallelTesting);
     	reportBuilder.generateReports();
     	
-    }
+    	System.err.println("Done.");
+
+	}
+
 }
