@@ -13,7 +13,7 @@ import cucumber.api.SnippetType;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-	plugin={"json:target/cucumber-html-reports/test-report.json"},
+	plugin={"json:target/cucumber-reports/test-report.json"},
 	monochrome=true,
 	snippets=SnippetType.CAMELCASE
 	)
