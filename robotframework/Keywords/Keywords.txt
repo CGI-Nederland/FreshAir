@@ -86,6 +86,7 @@ return date is ${nr} days after today
 
 query is submitted
     Click Button    submit
+    Sleep    2s
 
 query result is shown
     Page Should Contain    Flight Schedule
