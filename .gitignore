@@ -6,3 +6,6 @@ node_modules
 .project
 .classpath
 .settings
+report.html
+log.html
+output.xml

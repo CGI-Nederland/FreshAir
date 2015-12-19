@@ -1,6 +1,6 @@
 {
   "name": "freshair",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/mauricekoster/FreshAir",
   "authors": [
     "Maurice Koster <maurice.koster@cgi.com>"
@@ -21,15 +21,16 @@
     "tests"
   ],
   "dependencies": {
-    "angular-route": "~1.2.16",
-    "bootstrap": "~3.1.1",
-    "angular-animate": "~1.2.16",
-    "angular-ui-date": "~0.0.3",
-    "angular-sanitize": "~1.2.16",
-    "angular-bootstrap": "~0.10.0",
-    "toastr": "~2.0.1",
-    "spin.js": "~2.0.0",
-    "moment": "~2.6.0",
-    "font-awesome": "~4.0.3"
+    "angular": "~1.4.8",
+    "angular-route": "~1.4.8",
+    "bootstrap": "~3.3.6",
+    "angular-animate": "~1.4.8",
+    "angular-ui-date": "~0.0.11",
+    "angular-sanitize": "~1.4.8",
+    "angular-bootstrap": "~0.14.3",
+    "toastr": "~2.1.2",
+    "spin.js": "~2.0.1",
+    "moment": "~2.10.6",
+    "fontawesome": "~4.5.0"
   }
 }

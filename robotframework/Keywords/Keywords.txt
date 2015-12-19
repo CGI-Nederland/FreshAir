@@ -2,8 +2,8 @@
 Library           Selenium2Library
 
 *** Variables ***
-${BASE_URL}      http://ng-freshair.herokuapp.com/#
-#${BASE_URL}       http://localhost:80/#
+${BASE_URL}       http://ng-freshair.herokuapp.com/#
+#${BASE_URL}      http://localhost:80/#
 ${BROWSER}        firefox
 
 *** Keywords ***
@@ -64,7 +64,7 @@ Show availability page
 
 a new search is started
     Go To    ${BASE_URL}/search
-    Sleep    2s
+    Sleep    3s
     Page Should Contain    Honest Flight Search
 
 The availability page is shown
@@ -86,6 +86,7 @@ return date is ${nr} days after today
 
 query is submitted
     Click Button    submit
+    Sleep    2s
 
 query result is shown
     Page Should Contain    Flight Schedule
